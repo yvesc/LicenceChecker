@@ -10,14 +10,13 @@ Inherits SiteStyle
 		corner-bottomleft=3px
 		corner-bottomright=3px
 		corner-topright=3px
-		misc-background=gradient vertical 0 37EA3AFF 1 2CB321FF
-		shadow-text=0px 0px 8px 0000007F
-		shadow-box=3px 0px 8px 0000007F
+		misc-background=solid 3AB630FF
+		text-color=FFFFFFFF
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
-		shadow-text=0px 0px 8px 0000007F
+		shadow-box=0px 0px 8px 0000007F
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
 	#tag EndWebStyleStateGroup

@@ -1,25 +1,30 @@
 #tag WebPage
-Begin WebContainer ContainerControlActivationBox
+Begin WebDialog WebDialogResult
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   144
+   Height          =   136
    HelpTag         =   ""
    HorizontalCenter=   0
-   Index           =   -2147483648
+   Index           =   0
    Left            =   0
    LockBottom      =   False
    LockHorizontal  =   False
-   LockLeft        =   True
+   LockLeft        =   False
    LockRight       =   False
-   LockTop         =   True
+   LockTop         =   False
    LockVertical    =   False
+   MinHeight       =   0
+   MinWidth        =   0
+   Resizable       =   True
    Style           =   "None"
    TabOrder        =   0
+   Title           =   "Untitled"
    Top             =   0
+   Type            =   3
    VerticalCenter  =   0
    Visible         =   True
-   Width           =   516
+   Width           =   508
    ZIndex          =   1
    _DeclareLineRendered=   False
    _HorizontalPercent=   0.0
@@ -30,20 +35,15 @@ Begin WebContainer ContainerControlActivationBox
    _OpenEventFired =   False
    _ShownEventFired=   False
    _VerticalPercent=   0.0
-   Begin WebTextField TFActivationNumber
-      AutoCapitalize  =   True
-      AutoComplete    =   True
-      AutoCorrect     =   True
-      CueText         =   "Put activation number here..."
-      Cursor          =   0
+   Begin WebLabel LabelLicence
+      Cursor          =   1
       Enabled         =   True
       HasFocusRing    =   True
-      Height          =   49
+      Height          =   45
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
       Left            =   20
-      LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -51,28 +51,27 @@ Begin WebContainer ContainerControlActivationBox
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      ReadOnly        =   False
+      Multiline       =   False
       Scope           =   0
       Style           =   "255244287"
       TabOrder        =   0
-      Text            =   ""
+      Text            =   "Untitled"
       Top             =   14
-      Type            =   0
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   476
+      Width           =   468
       ZIndex          =   1
       _NeedsRendering =   True
    End
-   Begin WebButton ButtonGetLicence
-      Caption         =   "Get Licence Number !"
+   Begin WebButton ButtonOk
+      Caption         =   "Ok"
       Cursor          =   0
       Enabled         =   True
-      Height          =   49
+      Height          =   45
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   107
+      Left            =   204
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -83,10 +82,10 @@ Begin WebContainer ContainerControlActivationBox
       Scope           =   0
       Style           =   "98125823"
       TabOrder        =   1
-      Top             =   75
+      Top             =   71
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   302
+      Width           =   100
       ZIndex          =   1
       _NeedsRendering =   True
    End
@@ -96,35 +95,12 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
-#tag Events ButtonGetLicence
+#tag Events ButtonOk
 	#tag Event
 		Sub Action()
-		  Dim response As new WebDialog1 
-		  Dim licencenum As String
 		  
-		  Dim privateKey As String
-		  Dim publicKey As String
-		  Dim signature, encryptedmsg, MD5PrivateKey, MD5PublicKey As MemoryBlock
 		  
-		  // 2048-bit private and public keys were generated
-		  
-		  Dim msg As String = "th"
-		  
-		  signature = Crypto.RSASign( msg, LicenceManager.getPrivateKey )
-		  encryptedmsg = Crypto.RSAEncrypt(msg, LicenceManager.getPublicKey)
-		  msg=""
-		  
-		  If signature <> Nil Then
-		    // msg was successfully signed
-		    licencenum = EncodeHex(signature)
-		    
-		  End If
-		  
-		  // Set label text with licencenum computed...
-		  response.LabelLicence.Text = licencenum
-		  
-		  // Then display result
-		  response.Show
+		  Close()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -189,59 +165,61 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Index"
-		Visible=true
 		Group="ID"
-		InitialValue="-2147483648"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
-		Visible=true
 		Group="Position"
-		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockBottom"
-		Visible=true
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockHorizontal"
-		Visible=true
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockLeft"
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="LockLeft"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="LockRight"
-		Visible=true
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockTop"
-		Visible=true
 		Group="Behavior"
-		InitialValue="True"
+		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockVertical"
-		Visible=true
 		Group="Behavior"
-		InitialValue="False"
 		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinHeight"
+		Visible=true
+		Group="Minimum Size"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinWidth"
+		Visible=true
+		Group="Minimum Size"
+		InitialValue="0"
+		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
@@ -250,17 +228,11 @@ End
 		Type="String"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="ScrollbarsVisible"
+		Name="Resizable"
 		Visible=true
 		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-		EditorType="Enum"
-		#tag EnumValues
-			"0 - Automatic"
-			"1 - Always"
-			"2 - Never"
-		#tag EndEnumValues
+		InitialValue="True"
+		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
@@ -276,11 +248,30 @@ End
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Top"
+		Name="Title"
 		Visible=true
+		Group="Behavior"
+		InitialValue="Untitled"
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Top"
 		Group="Position"
-		InitialValue="0"
 		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"1 - Sheet"
+			"2 - Palette"
+			"3 - Modal"
+		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="VerticalCenter"
@@ -289,7 +280,6 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
-		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
