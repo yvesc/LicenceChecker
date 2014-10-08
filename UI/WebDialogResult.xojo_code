@@ -1,14 +1,12 @@
 #tag WebPage
-Begin WebPage MainWebPage
+Begin WebDialog WebDialogResult
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   468
+   Height          =   136
    HelpTag         =   ""
    HorizontalCenter=   0
-   ImplicitInstance=   True
-   Index           =   -2147483648
-   IsImplicitInstance=   False
+   Index           =   0
    Left            =   0
    LockBottom      =   False
    LockHorizontal  =   False
@@ -16,19 +14,20 @@ Begin WebPage MainWebPage
    LockRight       =   False
    LockTop         =   False
    LockVertical    =   False
-   MinHeight       =   400
-   MinWidth        =   600
-   Style           =   "580040703"
+   MinHeight       =   0
+   MinWidth        =   0
+   Resizable       =   True
+   Style           =   "None"
    TabOrder        =   0
    Title           =   "Untitled"
    Top             =   0
+   Type            =   3
    VerticalCenter  =   0
    Visible         =   True
-   Width           =   674
+   Width           =   508
    ZIndex          =   1
    _DeclareLineRendered=   False
    _HorizontalPercent=   0.0
-   _ImplicitInstance=   False
    _IsEmbedded     =   False
    _Locked         =   False
    _NeedsRendering =   True
@@ -36,14 +35,15 @@ Begin WebPage MainWebPage
    _OpenEventFired =   False
    _ShownEventFired=   False
    _VerticalPercent=   0.0
-   Begin ContainerControlActivationBox ContainerControlActBox
-      Cursor          =   0
+   Begin WebLabel LabelLicence
+      Cursor          =   1
       Enabled         =   True
-      Height          =   144
+      HasFocusRing    =   True
+      Height          =   45
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   79
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -51,14 +51,15 @@ Begin WebPage MainWebPage
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      Multiline       =   False
       Scope           =   0
-      ScrollbarsVisible=   0
-      Style           =   "-1"
+      Style           =   "255244287"
       TabOrder        =   0
-      Top             =   162
+      Text            =   "Untitled"
+      Top             =   14
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   516
+      Width           =   468
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -67,24 +68,56 @@ Begin WebPage MainWebPage
       _NeedsRendering =   True
       _OfficialControl=   False
       _OpenEventFired =   False
-      _ShownEventFired=   False
+      _VerticalPercent=   0.0
+   End
+   Begin WebButton ButtonOk
+      Caption         =   "Ok"
+      Cursor          =   0
+      Enabled         =   True
+      Height          =   45
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   204
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "98125823"
+      TabOrder        =   1
+      Top             =   71
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   100
+      ZIndex          =   1
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
+      _NeedsRendering =   True
+      _OfficialControl=   False
+      _OpenEventFired =   False
       _VerticalPercent=   0.0
    End
 End
 #tag EndWebPage
 
 #tag WindowCode
-	#tag Event
-		Sub Resized()
-		  //ContainerControl11.Top
-		  ContainerControlActBox.Left = (me.Width- ContainerControlActBox.Width)/2
-		  ContainerControlActBox.Top = (me.Height - ContainerControlActBox.Height)/2
-		End Sub
-	#tag EndEvent
-
-
 #tag EndWindowCode
 
+#tag Events ButtonOk
+	#tag Event
+		Sub Action()
+		  
+		  
+		  Close()
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Cursor"
@@ -120,6 +153,7 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Enabled"
+		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
@@ -128,7 +162,7 @@ End
 		Name="Height"
 		Visible=true
 		Group="Behavior"
-		InitialValue="400"
+		InitialValue="300"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -146,18 +180,11 @@ End
 	#tag ViewProperty
 		Name="Index"
 		Group="ID"
-		InitialValue="-2147483648 "
 		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="IsImplicitInstance"
-		Group="Behavior"
-		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
 		Group="Position"
-		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -197,15 +224,15 @@ End
 	#tag ViewProperty
 		Name="MinHeight"
 		Visible=true
-		Group="Behavior"
-		InitialValue="400"
+		Group="Minimum Size"
+		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MinWidth"
 		Visible=true
-		Group="Behavior"
-		InitialValue="600"
+		Group="Minimum Size"
+		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -215,6 +242,13 @@ End
 		Type="String"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="Resizable"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
@@ -222,7 +256,9 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabOrder"
+		Visible=true
 		Group="Behavior"
+		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -236,8 +272,20 @@ End
 	#tag ViewProperty
 		Name="Top"
 		Group="Position"
-		InitialValue="0"
 		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Type"
+		Visible=true
+		Group="Behavior"
+		InitialValue="1"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"1 - Sheet"
+			"2 - Palette"
+			"3 - Modal"
+		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="VerticalCenter"
@@ -254,7 +302,7 @@ End
 		Name="Width"
 		Visible=true
 		Group="Behavior"
-		InitialValue="600"
+		InitialValue="300"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -273,12 +321,6 @@ End
 		Name="_HorizontalPercent"
 		Group="Behavior"
 		Type="Double"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="_ImplicitInstance"
-		Group="Behavior"
-		InitialValue="False"
-		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="_IsEmbedded"
