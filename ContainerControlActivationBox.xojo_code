@@ -99,7 +99,7 @@ End
 #tag Events ButtonGetLicence
 	#tag Event
 		Sub Action()
-		  Dim response As new WebDialog1 
+		  Dim response As new WWebDialogResult 
 		  Dim licencenum As String
 		  
 		  Dim privateKey As String

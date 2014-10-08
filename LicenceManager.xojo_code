@@ -1,13 +1,13 @@
 #tag Class
 Protected Class LicenceManager
 	#tag Method, Flags = &h0
-		Function getPrivateKey() As String
+		 Shared Function getPrivateKey() As String
 		  return PRIVATEKEY
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function getPublicKey() As String
+		 Shared Function getPublicKey() As String
 		  return PUBLICKEY
 		End Function
 	#tag EndMethod

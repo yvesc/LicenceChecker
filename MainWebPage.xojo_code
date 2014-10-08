@@ -1,5 +1,5 @@
 #tag WebPage
-Begin WebPage WebPage1
+Begin WebPage MainWebPage
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
