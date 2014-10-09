@@ -125,8 +125,8 @@ End
 		  
 		  Dim msg As String = "th"
 		  
-		  signature = Crypto.RSASign( msg, LicenceManager.getPrivateKey )
-		  encryptedmsg = Crypto.RSAEncrypt(msg, LicenceManager.getPublicKey)
+		  signature = Crypto.RSASign( msg, app.getPrivateKey )
+		  encryptedmsg = Crypto.RSAEncrypt(msg, app.getPublicKey)
 		  msg=""
 		  
 		  If signature <> Nil Then
