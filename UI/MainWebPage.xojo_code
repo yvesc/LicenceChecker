@@ -43,7 +43,7 @@ Begin WebPage MainWebPage
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   79
+      Left            =   127
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -54,10 +54,10 @@ Begin WebPage MainWebPage
       Scope           =   0
       ScrollbarsVisible=   0
       Style           =   "-1"
-      TabOrder        =   0
-      Top             =   162
+      TabOrder        =   2
+      Top             =   108
       VerticalCenter  =   0
-      Visible         =   False
+      Visible         =   True
       Width           =   516
       ZIndex          =   1
       _DeclareLineRendered=   False

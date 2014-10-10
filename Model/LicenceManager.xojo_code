@@ -9,7 +9,8 @@ Protected Class LicenceManager
 	#tag Method, Flags = &h0
 		 Shared Function getInstance() As LicenceManager
 		  
-		  if mLicenceManager == Nil then
+		  
+		  if instance is Nil then
 		    instance = new LicenceManager
 		    
 		  end

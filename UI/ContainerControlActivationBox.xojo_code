@@ -123,7 +123,7 @@ End
 		  
 		  // 2048-bit private and public keys were generated
 		  
-		  Dim msg As String = "th"
+		  Dim msg As String = TFActivationNumber.Text
 		  
 		  signature = Crypto.RSASign( msg, app.getPrivateKey )
 		  encryptedmsg = Crypto.RSAEncrypt(msg, app.getPublicKey)

@@ -4,7 +4,12 @@ Inherits WebApplication
 	#tag Event
 		Sub Open(args() as String)
 		  // Init
+		  Dim started As Boolean
+		  Dim skey As String
 		  LicenceCoder = LicenceManager.getInstance
+		  skey = getPublicKey
+		  
+		  started = true
 		End Sub
 	#tag EndEvent
 
