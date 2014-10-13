@@ -18,3 +18,4 @@ Todo
 * Add product ID.
 * Add session managment.
 * Documentation.
+* Enforce crypto and signature mechanism.
