@@ -13,5 +13,8 @@ Todo
 ----
 
 * Api for app (post a UUID/activation number and get an licence).
-* Store each request.
+* Store each request into database.
+* Filter fake request vs customer request.
+* Add product ID.
+* Add session managment.
 * Documentation.
