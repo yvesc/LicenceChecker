@@ -1,28 +1,34 @@
 #tag WebPage
-Begin WebContainer ContainerControlActivationBox
+Begin WebPage MainWebPage
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   144
+   Height          =   468
    HelpTag         =   ""
    HorizontalCenter=   0
+   ImplicitInstance=   True
    Index           =   -2147483648
+   IsImplicitInstance=   False
    Left            =   0
    LockBottom      =   False
    LockHorizontal  =   False
-   LockLeft        =   True
+   LockLeft        =   False
    LockRight       =   False
-   LockTop         =   True
+   LockTop         =   False
    LockVertical    =   False
-   Style           =   "None"
+   MinHeight       =   400
+   MinWidth        =   600
+   Style           =   "580040703"
    TabOrder        =   0
+   Title           =   "Untitled"
    Top             =   0
    VerticalCenter  =   0
    Visible         =   True
-   Width           =   516
+   Width           =   804
    ZIndex          =   1
    _DeclareLineRendered=   False
    _HorizontalPercent=   0.0
+   _ImplicitInstance=   False
    _IsEmbedded     =   False
    _Locked         =   False
    _NeedsRendering =   True
@@ -30,20 +36,14 @@ Begin WebContainer ContainerControlActivationBox
    _OpenEventFired =   False
    _ShownEventFired=   False
    _VerticalPercent=   0.0
-   Begin WebTextField TFActivationNumber
-      AutoCapitalize  =   True
-      AutoComplete    =   True
-      AutoCorrect     =   True
-      CueText         =   "Put activation number here..."
+   Begin ContainerControlActivationBox ContainerControlActBox
       Cursor          =   0
       Enabled         =   True
-      HasFocusRing    =   True
-      Height          =   49
+      Height          =   144
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
-      LimitText       =   0
+      Left            =   144
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -51,17 +51,14 @@ Begin WebContainer ContainerControlActivationBox
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      Password        =   False
-      ReadOnly        =   False
       Scope           =   0
-      Style           =   "255244287"
+      ScrollbarsVisible=   0
+      Style           =   "-1"
       TabOrder        =   0
-      Text            =   ""
-      Top             =   14
-      Type            =   0
+      Top             =   158
       VerticalCenter  =   0
-      Visible         =   True
-      Width           =   476
+      Visible         =   False
+      Width           =   516
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -70,79 +67,24 @@ Begin WebContainer ContainerControlActivationBox
       _NeedsRendering =   True
       _OfficialControl=   False
       _OpenEventFired =   False
-      _VerticalPercent=   0.0
-   End
-   Begin WebButton ButtonGetLicence
-      Caption         =   "Get Licence Number !"
-      Cursor          =   0
-      Enabled         =   True
-      Height          =   49
-      HelpTag         =   ""
-      HorizontalCenter=   0
-      Index           =   -2147483648
-      Left            =   107
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockHorizontal  =   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      LockVertical    =   False
-      Scope           =   0
-      Style           =   "98125823"
-      TabOrder        =   1
-      Top             =   75
-      VerticalCenter  =   0
-      Visible         =   True
-      Width           =   302
-      ZIndex          =   1
-      _DeclareLineRendered=   False
-      _HorizontalPercent=   0.0
-      _IsEmbedded     =   False
-      _Locked         =   False
-      _NeedsRendering =   True
-      _OfficialControl=   False
-      _OpenEventFired =   False
+      _ShownEventFired=   False
       _VerticalPercent=   0.0
    End
 End
 #tag EndWebPage
 
 #tag WindowCode
-#tag EndWindowCode
-
-#tag Events ButtonGetLicence
 	#tag Event
-		Sub Action()
-		  Dim response As new WebDialogResult
-		  Dim licencenum, actnum As String
-		  
-		  Dim privateKey As String
-		  Dim publicKey As String
-		  Dim signature, MD5PrivateKey, MD5PublicKey As MemoryBlock
-		  
-		  // 2048-bit private and public keys were generated
-		  
-		  Dim encryptedMsg As String = TFActivationNumber.Text
-		  
-		  actnum = Crypto.RSADecrypt(DecodeHex(encryptedMsg),  app.getPrivateKey )
-		  
-		  signature = Crypto.RSASign( actnum, app.getPrivateKey )
-		  
-		  If signature <> Nil Then
-		    // msg was successfully signed
-		    licencenum = EncodeHex(signature)
-		    
-		  End If
-		  
-		  // Set label text with licencenum computed...
-		  response.LabelLicence.Text = licencenum
-		  
-		  // Then display result
-		  response.Show
+		Sub Resized()
+		  //ContainerControl11.Top
+		  ContainerControlActBox.Left = (me.Width- ContainerControlActBox.Width)/2
+		  ContainerControlActBox.Top = (me.Height - ContainerControlActBox.Height)/2
 		End Sub
 	#tag EndEvent
-#tag EndEvents
+
+
+#tag EndWindowCode
+
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Cursor"
@@ -178,7 +120,6 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Enabled"
-		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
@@ -187,7 +128,7 @@ End
 		Name="Height"
 		Visible=true
 		Group="Behavior"
-		InitialValue="300"
+		InitialValue="400"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -204,78 +145,74 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Index"
-		Visible=true
 		Group="ID"
-		InitialValue="-2147483648"
+		InitialValue="-2147483648 "
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="IsImplicitInstance"
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Left"
-		Visible=true
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockBottom"
-		Visible=true
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockHorizontal"
-		Visible=true
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LockLeft"
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="LockLeft"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="LockRight"
-		Visible=true
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockTop"
-		Visible=true
 		Group="Behavior"
-		InitialValue="True"
+		InitialValue="False"
 		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="LockVertical"
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinHeight"
 		Visible=true
 		Group="Behavior"
-		InitialValue="False"
-		Type="Boolean"
+		InitialValue="400"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MinWidth"
+		Visible=true
+		Group="Behavior"
+		InitialValue="600"
+		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
 		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ScrollbarsVisible"
-		Visible=true
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-		EditorType="Enum"
-		#tag EnumValues
-			"0 - Automatic"
-			"1 - Always"
-			"2 - Never"
-		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
@@ -285,14 +222,19 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="TabOrder"
-		Visible=true
 		Group="Behavior"
-		InitialValue="0"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Top"
+		Name="Title"
 		Visible=true
+		Group="Behavior"
+		InitialValue="Untitled"
+		Type="String"
+		EditorType="MultiLineEditor"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Top"
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
@@ -304,7 +246,6 @@ End
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
-		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
@@ -313,7 +254,7 @@ End
 		Name="Width"
 		Visible=true
 		Group="Behavior"
-		InitialValue="300"
+		InitialValue="600"
 		Type="Integer"
 	#tag EndViewProperty
 	#tag ViewProperty
@@ -332,6 +273,12 @@ End
 		Name="_HorizontalPercent"
 		Group="Behavior"
 		Type="Double"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="_ImplicitInstance"
+		Group="Behavior"
+		InitialValue="False"
+		Type="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="_IsEmbedded"

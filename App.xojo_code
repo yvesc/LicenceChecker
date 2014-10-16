@@ -6,7 +6,7 @@ Inherits WebApplication
 		  // Init
 		  Dim started As Boolean
 		  Dim skey As String
-		  LicenceCoder = LicenceManager.getInstance
+		  LicenceCoder = KeyManagerServer.getInstance
 		  skey = getPublicKey
 		  
 		  started = true
@@ -28,7 +28,7 @@ Inherits WebApplication
 
 
 	#tag Property, Flags = &h21
-		Private LicenceCoder As LicenceManager
+		Private LicenceCoder As KeyManagerServer
 	#tag EndProperty
 
 
