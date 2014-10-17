@@ -126,20 +126,19 @@ End
 		  Dim encryptedMsg As String = TFActivationNumber.Text
 		  
 		  actnum = Crypto.RSADecrypt(DecodeHex(encryptedMsg),  app.getPrivateKey )
-		  
-		  signature = Crypto.RSASign( actnum, app.getPrivateKey )
+		  signature = Crypto.RSASign( actnum.trim, app.getPrivateKey )
 		  
 		  If signature <> Nil Then
 		    // msg was successfully signed
 		    licencenum = EncodeHex(signature)
 		    
+		    // Set label text with licencenum computed...
+		    response.LabelLicence.Text = licencenum
+		    
+		    // Then display result
+		    response.Show
+		    
 		  End If
-		  
-		  // Set label text with licencenum computed...
-		  response.LabelLicence.Text = licencenum
-		  
-		  // Then display result
-		  response.Show
 		End Sub
 	#tag EndEvent
 #tag EndEvents

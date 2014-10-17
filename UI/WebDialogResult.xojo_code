@@ -3,7 +3,7 @@ Begin WebDialog WebDialogResult
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   136
+   Height          =   308
    HelpTag         =   ""
    HorizontalCenter=   0
    Index           =   0
@@ -39,7 +39,7 @@ Begin WebDialog WebDialogResult
       Cursor          =   1
       Enabled         =   True
       HasFocusRing    =   True
-      Height          =   45
+      Height          =   217
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
@@ -51,7 +51,7 @@ Begin WebDialog WebDialogResult
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      Multiline       =   False
+      Multiline       =   True
       Scope           =   0
       Style           =   "255244287"
       TabOrder        =   0
@@ -89,7 +89,7 @@ Begin WebDialog WebDialogResult
       Scope           =   0
       Style           =   "98125823"
       TabOrder        =   1
-      Top             =   71
+      Top             =   243
       VerticalCenter  =   0
       Visible         =   True
       Width           =   100
