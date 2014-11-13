@@ -2,6 +2,30 @@
 Protected Class App
 Inherits WebApplication
 	#tag Event
+		Function HandleSpecialURL(Request As WebRequest) As Boolean
+		  Dim varsTemp() as String = Split(Request.Path,"&")
+		  dim vars as new dictionary
+		  Dim JSONReturn As JSONItem 
+		  
+		  
+		  For i as Integer = 0 to ubound(varsTemp)
+		    dim key as string = nthField(varsTemp(i),"=",1)
+		    dim value as string = nthField(varsTemp(i),"=",2)
+		    vars.value(key) = value
+		    
+		  Next i
+		  
+		  JSONReturn = new JSONItem
+		  
+		  JSONReturn.Value("uid") = "0123456789"
+		  
+		  Request.MIMEType = "application/json"
+		  Request.Print(JSONReturn.ToString)
+		  return True
+		End Function
+	#tag EndEvent
+
+	#tag Event
 		Sub Open(args() as String)
 		  // Init
 		  Dim started As Boolean
@@ -10,6 +34,7 @@ Inherits WebApplication
 		  skey = getPublicKey
 		  
 		  started = true
+		  
 		End Sub
 	#tag EndEvent
 
